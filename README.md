@@ -1,2 +1,2 @@
 # O-Concert-front
-test
+site de recherche de concerts par genres et régions. Codé en React
