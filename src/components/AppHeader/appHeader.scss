@@ -18,4 +18,8 @@
   font-size: 1.1em;
   margin-top:0.5em;
 }  
+.navlink-header:hover {
+  color: vars.$fontColorHover !important;
+  transform: scale(1.3);
+}  
 

@@ -19,7 +19,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_EVENTS_BY_GENRE:
       // We send request to the API in order to get an event list filtered by genres
-      axios.get(`http://laure-chapert.vpnuser.lan:8000/api/genre/${action.id}/events`)
+      axios.get(`http://elise-pelletier.vpnuser.lan:8081/api/genre/${action.id}/events`)
         .then((response) => {
           // console.log(response.data.events);
           store.dispatch(saveEventsByGenre(response.data));
@@ -30,7 +30,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_DETAIL_EVENT:
       // We send request to the API in order to get an event detail
-      axios.get(`http://laure-chapert.vpnuser.lan:8000/api/event/${action.id}`)
+      axios.get(`http://elise-pelletier.vpnuser.lan:8081/api/event/${action.id}`)
         .then((response) => {
           console.log(response.data);
           store.dispatch(saveDetailEvent(response.data));
@@ -41,7 +41,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_EVENTS_ON_HOMEPAGE:
       // We send request to the API in order to get an event detail
-      axios.get('http://laure-chapert.vpnuser.lan:8000/api/event/home')
+      axios.get('http://elise-pelletier.vpnuser.lan:8081/api/event/home')
         .then((response) => {
           // console.log(response.data);
           store.dispatch(saveEventsOnHomepage(response.data));
@@ -52,7 +52,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_EVENTS_BY_REGION:
       // We send request to the API in order to get an event list filtered by genres
-      axios.get(`http://laure-chapert.vpnuser.lan:8000/api/region/${action.id}/events`)
+      axios.get(`http://elise-pelletier.vpnuser.lan:8081/api/region/${action.id}/events`)
         .then((response) => {
           store.dispatch(saveEventsByRegion(response.data));
         })
@@ -62,7 +62,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_EVENTS_WITH_SEARCHBAR:
       // We send request to the API in order to get an event list filtered by genres
-      axios.get(`http://laure-chapert.vpnuser.lan:8000/api/event/region/${action.genreId}/genre/${action.regionId}`)
+      axios.get(`http://elise-pelletier.vpnuser.lan:8081/api/event/region/${action.genreId}/genre/${action.regionId}`)
         .then((response) => {
           // console.log('response', response.data);
           store.dispatch(saveEventsWithSearchBar(response.data));
@@ -74,7 +74,7 @@ const eventsMiddleware = (store) => (next) => (action) => {
       break;
     case FETCH_ALL_EVENTS:
       // We send request to the API in order to get an event list filtered by genres
-      axios.get('http://laure-chapert.vpnuser.lan:8000/api/event')
+      axios.get('http://elise-pelletier.vpnuser.lan:8081/api/event')
         .then((response) => {
           // console.log('response', response.data);
           store.dispatch(saveAllEvents(response.data));

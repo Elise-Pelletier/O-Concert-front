@@ -10,7 +10,7 @@ const genresMiddleware = (store) => (next) => (action) => {
   switch (action.type) {
     case FETCH_GENRES:
     // We send request to the API in order to get genres list
-      axios.get('http://laure-chapert.vpnuser.lan:8000/api/genre')
+      axios.get('http://elise-pelletier.vpnuser.lan:8081/api/genre')
         .then((response) => {
           store.dispatch(saveGenres(response.data));
           // console.log(response.data);

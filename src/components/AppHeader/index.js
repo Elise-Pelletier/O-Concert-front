@@ -24,7 +24,7 @@ const AppHeader = () => {
           </LinkContainer>
           <LinkContainer to="/">
             <Nav.Link>
-              <h2 className="navbar-title">Concert'o</h2>
+              <h2 className="navbar-title">Concert'O</h2>
             </Nav.Link>
           </LinkContainer>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
