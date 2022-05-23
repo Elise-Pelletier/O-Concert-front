@@ -17,7 +17,7 @@ const Genres = () => {
   useEffect(() => {
     dispatch(fetchGenres());
   }, []);
-  // empty array with useEffect : acts like componentDidMount and only runs once
+  // empty array with useEffect : only runs once
   return (
     <Row>
       {genresList.map((item) => (
