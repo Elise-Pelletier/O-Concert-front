@@ -4,16 +4,26 @@ import {
   Navbar,
   Nav,
 } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 import logo from 'src/assets/images/logo.png';
+import LoginForm from 'src/components/LoginForm';
+
 import { fetchAllEvents } from '../../actions/events';
 import { setSelectedRegionId } from '../../actions/regions';
 import { setSelectedGenreId } from '../../actions/genres';
+import { changeLoginField, logIn } from '../../actions/user';
+
 import './appHeader.scss';
 
 const AppHeader = () => {
+  // const emailValue = useSelector((state) => state.users.email);
+  // const passwordValue = useSelector((state) => state.users.password);
+  // const username = useSelector((state) => state.users.username);
+  // const token = useSelector((state) => state.users.token);
+
   const dispatch = useDispatch();
+
   return (
     <div>
       <Navbar id="mainNav" expand="lg">
@@ -59,6 +69,28 @@ const AppHeader = () => {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      <LoginForm
+         // email={emailValue}
+         // password={passwordValue}
+        changeField={(newValue, name) => {
+          console.log(`changeField, newValue=${newValue} name=${name}`);
+
+          const action = changeLoginField(newValue, name);
+          dispatch(action);
+        }}
+        handleLogin={() => {
+          console.log('handleLogin');
+
+          // on dispatch une action qui sera traitée par userMiddleware
+          // => envoi d'une requête
+          dispatch(logIn());
+        }}
+        handleLogout={() => {
+          console.log('handleLogout');
+        }}
+       // isLogged={token !== null}
+       // loggedMessage={`Bienvenue ${username}`}
+      />
     </div>
 
   );
